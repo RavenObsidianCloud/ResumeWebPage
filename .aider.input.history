@@ -1,0 +1,27 @@
+
+# 2026-04-27 16:47:39.054859
++y
+
+# 2026-04-27 16:49:59.910804
++I need you to set up a git-based auto-deploy pipeline for this resume website project. Please do the following steps in order:
++
++1. Run "git status" to check if a git repo exists, if not run "git init"
++2. Create a .gitignore file ignoring .DS_Store, *.swp, .env, and editor files
++3. Create a deploy.sh script that runs: git add -A && git commit -m "deploy: $(date '+%Y-%m-%d %H:%M')" && git push origin main
++4. Make deploy.sh executable with chmod +x
++5. Create a README.md that says: "Chad's resume site for obsidiancloud.org — deployed automatically via Cloudflare Pages"
++6. Run git add -A and make the first commit with message "initial: resume site launch"
++
++Do not push yet — stop after the first commit. I will add the GitHub remote manually.
+
+# 2026-04-27 16:50:42.730204
++y
+
+# 2026-04-27 16:51:24.913763
++Now run: chmod +x deploy.sh then git add -A and git commit -m "initial: resume site launch"
+
+# 2026-04-27 16:54:12.627200
++Please run these shell commands directly:
++1. chmod +x deploy.sh
++2. git add -A
++3. git commit -m "initial: resume site launch"
