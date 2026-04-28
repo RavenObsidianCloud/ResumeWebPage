@@ -25,3 +25,23 @@
 +1. chmod +x deploy.sh
 +2. git add -A
 +3. git commit -m "initial: resume site launch"
+
+# 2026-04-27 17:41:21.643930
++y
+
+# 2026-04-27 17:41:34.919702
++n
+
+# 2026-04-27 17:42:35.840518
++/exit
+
+# 2026-04-27 17:45:09.234700
++Update only the "AI Agent Pipeline" project card to be clickable with a smooth expand animation. When clicked, the card expands downward to reveal a "View on GitHub" button that links to https://github.com/RavenObsidianCloud/TicketAgent
++
++The expand animation should be clean and subtle. Keep the existing dark theme and gold accent colors. Do not touch any other project cards.
+
+# 2026-04-27 17:45:41.662959
++n
+
+# 2026-04-27 18:29:02.011085
++y
