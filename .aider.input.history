@@ -108,3 +108,56 @@
 
 # 2026-04-27 19:11:47.264167
 +/run ./deploy.sh
+
+# 2026-04-27 19:11:59.574060
++y
+
+# 2026-04-27 19:20:56.130310
++Add a modal popup to the AI Agent Pipeline project card only. 
++
++When the card is clicked, a full screen overlay opens with:
++- Pure black background (#0a0a0a)
++- A centered content box with no border
++- Project title in large serif italic font in royal gold color (#c9a96e)
++- A description in gold-tinted muted text
++- A "View on GitHub" button in gold border and gold text
++- An X close button in the top right corner in gold
++
++The modal should fade in smoothly. Clicking the X or clicking outside 
++the modal closes it.
++
++Remove the previous expand/collapse behavior from that card since 
++we are replacing it with the modal.
++
++Do NOT touch any other project cards or any other part of the page.
++Make only the minimum changes needed.
+
+# 2026-04-27 19:21:43.572613
++did we do any changes?
+
+# 2026-04-27 19:22:52.556140
++/exit
+
+# 2026-04-27 19:25:37.030808
++Add a modal popup to the AI Phone Triage Agent project card only.
++
++When the card is clicked, a full screen overlay opens with:
++- Pure black background (#0a0a0a)
++- A centered content box with no border
++- Project title in large serif italic font in royal gold color (#c9a96e)
++- A description in gold-tinted muted text describing the Dialogflow CX 
++  phone triage system with intent routing and escalation flows
++- A "Coming Soon on GitHub" button in gold border and gold text
++- An X close button in the top right corner in gold
++
++The modal should fade in smoothly. Clicking the X or clicking outside 
++the modal closes it.
++
++Do NOT touch any other project cards or any other part of the page.
++Make only the minimum changes needed.
+
+# 2026-04-27 19:35:15.593204
++n
+
+# 2026-04-27 19:39:29.505754
++/exit
