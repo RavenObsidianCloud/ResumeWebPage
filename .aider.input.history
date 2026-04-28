@@ -63,3 +63,48 @@
 
 # 2026-04-27 18:47:08.233958
 +/exit
+
+# 2026-04-27 18:58:05.551692
++I need two very small targeted changes to index.html. Do NOT rewrite the whole file.
++
++CHANGE 1: Find the CSS section and add these styles at the very end of the <style> block, just before the closing </style> tag:
++
++.project-card .github-btn {
++  display: none;
++  margin-top: 0.75rem;
++  padding-top: 0.75rem;
++  border-top: 1px solid rgba(255,255,255,0.07);
++}
++.project-card.expanded .github-btn { display: block; }
++.github-btn a {
++  font-family: var(--mono);
++  font-size: 0.65rem;
++  letter-spacing: 0.1em;
++  text-transform: uppercase;
++  color: var(--accent);
++  text-decoration: none;
++  border: 1px solid var(--accent);
++  padding: 0.4rem 1rem;
++  transition: all 0.2s;
++}
++.github-btn a:hover { background: var(--accent); color: var(--bg); }
++
++CHANGE 2: Find the AI Agent Pipeline project card div and add onclick and the github-btn div to it so it looks exactly like this:
++
++<div class="project-card" onclick="this.classList.toggle('expanded')">
++  <div class="project-type">Python · Local AI</div>
++  <div class="project-title">AI Agent Pipeline</div>
++  <div class="project-desc">
++    Four production Python tools — agent.py, agent-heavy.py, triage.py, ticket_queue.py — 
++    running on a local Ollama stack with Qwen 3 8B/32B. Built for real ticket triage and queue management workflows.
++  </div>
++  <div class="github-btn"><a href="https://github.com/RavenObsidianCloud/TicketAgent" target="_blank">View on GitHub →</a></div>
++</div>
++
++Make ONLY these two changes. Do not touch anything else.
+
+# 2026-04-27 18:58:23.480490
++n
+
+# 2026-04-27 19:11:47.264167
++/run ./deploy.sh

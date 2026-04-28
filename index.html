@@ -546,6 +546,27 @@
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--text-dim); }
+
+  /* CHANGE 1: New CSS styles */
+  .project-card .github-btn {
+    display: none;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+  .project-card.expanded .github-btn { display: block; }
+  .github-btn a {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    padding: 0.4rem 1rem;
+    transition: all 0.2s;
+  }
+  .github-btn a:hover { background: var(--accent); color: var(--bg); }
 </style>
 </head>
 <body>
@@ -698,13 +719,15 @@
     </div>
     <div class="project-grid">
 
-      <div class="project-card">
+      <!-- CHANGE 2: Modified AI Agent Pipeline project card -->
+      <div class="project-card" onclick="this.classList.toggle('expanded')">
         <div class="project-type">Python · Local AI</div>
         <div class="project-title">AI Agent Pipeline</div>
         <div class="project-desc">
           Four production Python tools — agent.py, agent-heavy.py, triage.py, ticket_queue.py — 
           running on a local Ollama stack with Qwen 3 8B/32B. Built for real ticket triage and queue management workflows.
         </div>
+        <div class="github-btn"><a href="https://github.com/RavenObsidianCloud/TicketAgent" target="_blank">View on GitHub →</a></div>
       </div>
 
       <div class="project-card">
