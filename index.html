@@ -560,119 +560,6 @@
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--text-dim); }
-
-  /* ─── TRIAGE MODAL ─── */
-  @keyframes modalFadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-
-  #triage-card { cursor: pointer; }
-
-  #triage-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: #000;
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #triage-modal.open {
-    display: flex;
-    animation: modalFadeIn 0.35s ease forwards;
-  }
-
-  .triage-modal-inner {
-    text-align: center;
-    padding: 3rem 2rem;
-    max-width: 600px;
-    width: 100%;
-  }
-
-  .triage-modal-title {
-    font-family: var(--serif);
-    font-size: clamp(2.5rem, 8vw, 4rem);
-    font-style: italic;
-    color: #c9a96e;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-  }
-
-  .triage-modal-desc {
-    font-family: var(--sans);
-    font-size: 1rem;
-    font-weight: 300;
-    color: rgba(201,169,110,0.7);
-    line-height: 1.8;
-    margin-bottom: 2.5rem;
-  }
-
-  .triage-modal-btn {
-    display: inline-block;
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #000;
-    background: #c9a96e;
-    border: 1px solid #c9a96e;
-    padding: 0.85rem 2rem;
-    cursor: default;
-    transition: background 0.2s, color 0.2s;
-  }
-
-  .triage-modal-btn:hover {
-    background: transparent;
-    color: #c9a96e;
-  }
-
-  .triage-modal-close {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    font-family: var(--mono);
-    font-size: 1.5rem;
-    color: #c9a96e;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    line-height: 1;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-  }
-
-  .triage-modal-close:hover { opacity: 1; }
-
-  /* ─── MODAL CLOSE ANIMATION ─── */
-  @keyframes modalFadeOut {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-  }
-  @keyframes modalShrink {
-    from { transform: scale(1); }
-    to   { transform: scale(0); }
-  }
-  #triage-modal.open.closing {
-    animation: modalFadeOut 0.6s ease forwards;
-  }
-  #triage-modal.closing .triage-modal-inner {
-    animation: modalShrink 0.5s ease-in forwards;
-  }
-
-  /* ─── CROW BURST ANIMATION ─── */
-  @keyframes crowWingFlap {
-    0%   { transform: rotate(-12deg); }
-    50%  { transform: rotate(26deg); }
-    100% { transform: rotate(-12deg); }
-  }
-  .crow-wing {
-    transform-box: fill-box;
-    transform-origin: right bottom;
-    animation: crowWingFlap 0.35s ease-in-out infinite;
-  }
 </style>
 </head>
 <body>
@@ -835,14 +722,15 @@
         <a href="https://github.com/RavenObsidianCloud/TicketAgent" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
       </div>
 
-      <div class="project-card" id="triage-card" role="button" tabindex="0" aria-haspopup="dialog">
+      <div class="project-card">
         <div class="project-type">GCP · Conversational Agents</div>
         <div class="project-title">AI Inbound Call Agent</div>
         <div class="project-desc">
-          GCP Conversational Agents (formerly Dialogflow CX) phone system with Firestore knowledge base,
-          Cloud Functions webhooks, multilingual support, and blind transfer routing.
-          Designed to replace manual front desk call handling at a fraction of the cost.
+          GCP Conversational Agents phone system replacing manual front desk call handling.
+          Firestore knowledge base, Cloud Functions webhooks, multilingual STT/TTS,
+          and blind transfer routing — white-labeled and deployable in under 8 weeks.
         </div>
+        <a href="https://github.com/RavenObsidianCloud/AI-Call-Agent" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
       </div>
 
       <div class="project-card">
@@ -931,96 +819,6 @@
 </div>
 
 
-<div id="triage-modal" role="dialog" aria-modal="true" aria-labelledby="triage-modal-label">
-  <button class="triage-modal-close" id="triage-close" aria-label="Close">&times;</button>
-  <div class="triage-modal-inner">
-    <div class="triage-modal-title" id="triage-modal-label">AI Inbound Call Agent</div>
-    <p class="triage-modal-desc">
-      GCP Conversational Agents phone system replacing manual front desk call handling.
-      Intent routing, multilingual STT/TTS, Firestore knowledge base via Cloud Functions webhooks,
-      blind transfer to departments, and a fallback to live operator —
-      architected to be white-labeled across any organization in under 8 weeks.
-    </p>
-    <a href="https://github.com/RavenObsidianCloud/AI-Call-Agent" target="_blank" rel="noopener" class="triage-modal-btn">View on GitHub →</a>
-  </div>
-</div>
-
-<script>
-  const modal = document.getElementById('triage-modal');
-  const card  = document.getElementById('triage-card');
-  const close = document.getElementById('triage-close');
-
-  function openModal() {
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    close.focus();
-  }
-
-  function closeModal() {
-    modal.classList.remove('open', 'closing');
-    document.body.style.overflow = '';
-    card.focus();
-  }
-
-  function createCrowEl() {
-    const ns = 'http://www.w3.org/2000/svg';
-    const mk = (tag, attrs) => {
-      const e = document.createElementNS(ns, tag);
-      Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v));
-      return e;
-    };
-    const g = '#c9a96e';
-    const svg = mk('svg', { viewBox: '-50 -30 100 60', width: '80', height: '48', overflow: 'visible' });
-    svg.style.position = 'absolute';
-    // Wing (animates with flap around its root at body-top)
-    svg.appendChild(mk('path', { class: 'crow-wing', fill: g,
-      d: 'M5,-1 C0,-18 -26,-34 -50,-27 C-35,-17 -18,-9 0,-3 Z' }));
-    // Tail fan
-    svg.appendChild(mk('path', { fill: g,
-      d: 'M-14,2 C-22,-2 -38,0 -44,6 C-36,9 -22,11 -13,10 Z' }));
-    // Body
-    svg.appendChild(mk('ellipse', { cx: '5', cy: '5', rx: '20', ry: '8', fill: g }));
-    // Head
-    svg.appendChild(mk('ellipse', { cx: '24', cy: '-1', rx: '9', ry: '7', fill: g }));
-    // Beak
-    svg.appendChild(mk('polygon', { points: '32,-4 46,0 32,4', fill: g }));
-    return svg;
-  }
-
-  function burstCrows() {
-    const overlay = document.createElement('div');
-    overlay.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:2000;overflow:hidden;';
-    document.body.appendChild(overlay);
-    const cx = window.innerWidth / 2;
-    const cy = window.innerHeight / 2;
-    const dist = Math.max(window.innerWidth, window.innerHeight) + 120;
-    for (let i = 0; i < 8; i++) {
-      const angleDeg = (i / 8) * 360;
-      const crow = createCrowEl();
-      crow.style.left = cx + 'px';
-      crow.style.top  = cy + 'px';
-      overlay.appendChild(crow);
-      crow.animate([
-        { transform: `translate(-50%,-50%) rotate(${angleDeg}deg) translateX(0)`,               opacity: 1 },
-        { transform: `translate(-50%,-50%) rotate(${angleDeg}deg) translateX(${dist * 0.6}px)`, opacity: 1, offset: 0.65 },
-        { transform: `translate(-50%,-50%) rotate(${angleDeg}deg) translateX(${dist}px)`,        opacity: 0 }
-      ], { duration: 700, easing: 'ease-out', fill: 'forwards' });
-    }
-    setTimeout(() => overlay.remove(), 750);
-  }
-
-  function animateClose() {
-    burstCrows();
-    modal.classList.add('closing');
-    setTimeout(closeModal, 600);
-  }
-
-  card.addEventListener('click', openModal);
-  card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); } });
-  close.addEventListener('click', animateClose);
-  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
-</script>
 
 </body>
 </html>
