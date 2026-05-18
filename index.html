@@ -17,7 +17,7 @@
     --border-mid: rgba(255,255,255,0.12);
     --text: #e8e4dc;
     --text-muted: #7a7670;
-    --text-dim: #4a4845;
+    --text-dim: #6a6865;
     --accent: #c9a96e;
     --accent-dim: rgba(201,169,110,0.15);
     --accent-glow: rgba(201,169,110,0.06);
@@ -186,6 +186,13 @@
     border: 1px solid rgba(74,140,92,0.3);
     padding: 0.4rem 0.9rem;
     border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .status-badge:hover {
+    background: rgba(74,140,92,0.22);
+    border-color: rgba(74,140,92,0.6);
   }
 
   .status-dot {
@@ -590,10 +597,10 @@
       Currently open to infrastructure and cloud roles in Fresno/Clovis, Seattle, or remote.
     </p>
     <div class="status-row">
-      <span class="status-badge">
+      <a href="mailto:chad.obsidiancloud@gmail.com?subject=Let's%20work%20together" class="status-badge">
         <span class="status-dot"></span>
         Open to work
-      </span>
+      </a>
       <span class="location-text">📍 Fresno/Clovis CA · Seattle · Remote</span>
     </div>
   </div>
@@ -768,7 +775,7 @@
   </section>
 
   <!-- STACK -->
-  <section>
+  <section id="stack">
     <div class="section-header">
       <span class="section-num">04</span>
       <h2 class="section-title">Stack</h2>
@@ -806,7 +813,8 @@
         Fresno/Clovis area, Seattle, or fully remote.
       </p>
       <div class="contact-links">
-        <a href="mailto:chad@obsidiancloud.org" class="contact-link primary">Email me</a>
+        <a href="mailto:chad.obsidiancloud@gmail.com" class="contact-link primary">Email me</a>
+        <a href="/resume.pdf" class="contact-link" download>Resume</a>
         <a href="https://www.linkedin.com/in/chad-dutcher-1a280892/" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://github.com/RavenObsidianCloud" class="contact-link" target="_blank" rel="noopener">GitHub</a>
       </div>
